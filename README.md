@@ -19,3 +19,4 @@ La Banque Carrefour se donne pour missions :
 Comment?
 
 La Banque Carrefour et les institutions publiques de sécurité sociale (IPSS) ont durant 10 ans préparé, développé et mis en œuvre tous les outils qui leur permettent maintenant de passer à une vitesse supérieure dans l'offre de services intégrés.
+# flux-angular
