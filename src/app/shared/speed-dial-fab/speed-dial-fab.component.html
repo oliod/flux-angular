@@ -1,0 +1,33 @@
+
+<div id="fab-dismiss" 
+  *ngIf="fabTogglerState==='active'" 
+  (click)="onToggleFab()">
+</div>
+
+<div style="position: absolute; width: 0px; left: 230px;"> 
+  <div 
+    class="fab-container" 
+    [style.flexDirection]="reverseColumnDirection?'column-reverse':'column'">
+
+    <button mat-mini-fab  
+      class="fab-toggler" 
+      matTooltip="Environements"
+      (click)="onToggleFab()">
+
+      <i class="material-icons" [@fabToggler]="{value: fabTogglerState}">{{iconADD}}</i>
+    </button>
+
+    <div [className]="reverseColumnDirection?'column-reverse':'column'"
+      [@speedDialStagger]="buttons.length">
+
+      <button *ngFor="let btn of buttons"
+        mat-raised-button
+        [disabled]="nameEnvironement(btn)"
+        matTooltip="{{btn.displayName}}"
+        (click)="onClickFab(btn)">
+        <mat-icon matSuffix>{{iconENV}}</mat-icon> {{btn.shortName}}
+      </button>
+
+    </div>
+  </div>
+</div>

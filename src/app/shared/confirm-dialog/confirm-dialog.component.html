@@ -1,0 +1,22 @@
+
+
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <div mat-dialog-content>
+    <div class="dialog-title">
+      <mat-icon matSuffix style="position: relative; top: 5px; left: -5px;">{{iconDialog}}</mat-icon> Dialogue
+    </div>
+    
+    <div style="padding-top:10px; padding-bottom: 20px;">
+      <ngx-json-viewer [json]="message"></ngx-json-viewer>
+      <!--
+        <pre style="margin-bottom:50px; margin-top:0px"  [innerHtml]="message | prettyjson:3"></pre>
+      -->
+    </div>
+  </div>
+
+  <div mat-dialog-actions  class="mat-dialog-actions" style="width: 100%; ">
+    <button mat-raised-button color="primary" (click)="btnClose()">
+      <mat-icon matSuffix>{{iconButtonClose}}</mat-icon> Fermer 
+    </button>
+  </div>
+</div>

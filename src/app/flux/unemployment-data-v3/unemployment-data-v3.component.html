@@ -1,0 +1,65 @@
+
+<mat-card>
+  <app-title-and-description ref-show></app-title-and-description>
+  <div class="div-both"> </div>
+  <mat-tab-group (selectedIndexChange)="tabChanged($event)">
+         
+    <mat-tab label="ActivationPaidSums">
+      <div style="margin-bottom: 20px;"> </div> 
+      <app-activation-paid-sums [(hint)]="show.hint"></app-activation-paid-sums>
+    </mat-tab>
+
+    <mat-tab label="ExemptionHistory">
+      <div style="margin-bottom: 20px;"> </div>
+      <app-exemption-history [(hint)]="show.hint"></app-exemption-history>
+    </mat-tab>
+
+    <mat-tab label="NoEarningCapacityAndLawsuitMutuality">
+      <div style="margin-bottom: 20px;"> </div>
+      <app-no-earning-capacity [(hint)]="show.hint"></app-no-earning-capacity>
+    </mat-tab>
+
+    <mat-tab label="PaidSums">
+      <div style="margin-bottom: 20px;"> </div>
+      <app-paid-sums [(hint)]="show.hint"></app-paid-sums> 
+    </mat-tab>
+
+    <mat-tab label="Payments"> 
+      <div style="margin-bottom: 20px;"> </div>
+      <app-payments [(hint)]="show.hint"></app-payments>
+    </mat-tab>
+
+    <mat-tab label="Rights"> 
+      <div style="margin-bottom: 20px;"> </div>
+      <app-rights [(hint)]="show.hint"></app-rights>
+    </mat-tab>
+
+    <mat-tab label="SanctionHistory"> 
+      <div style="margin-bottom: 20px;"> </div>
+      <app-sanction-history [(hint)]="show.hint"></app-sanction-history>  
+    </mat-tab>
+
+    <mat-tab label="ScaleCodeHistory"> 
+      <div style="margin-bottom: 20px;"> </div>   
+      <app-scale-code-history [(hint)]="show.hint"></app-scale-code-history>
+    </mat-tab>
+
+    <mat-tab label="ScheduledPayment"> 
+      <div style="margin-bottom: 20px;"> </div>
+      <app-scheduled-payment [(hint)]="show.hint"></app-scheduled-payment>    
+    </mat-tab>
+
+    <mat-tab label="WorkDisabilityHistory"> 
+      <div style="margin-bottom: 20px;"> </div> 
+      <app-work-disability [(hint)]="show.hint"></app-work-disability>    
+    </mat-tab>
+
+    <mat-tab label="YoungAvailabilityDecisionHistory"> 
+      <div style="margin-bottom: 20px;"> </div>    
+      <app-young-availability [(hint)]="show.hint"></app-young-availability> 
+    </mat-tab>
+
+  </mat-tab-group>
+
+</mat-card> 
+

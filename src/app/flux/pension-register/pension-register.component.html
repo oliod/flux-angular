@@ -1,0 +1,114 @@
+<mat-card>
+  <app-title-and-description ref-show></app-title-and-description>
+  <div class="div-both"> </div>
+
+  <form [formGroup]="form">
+    <app-input-rn [form]="form" [(hint)]="show.hint" (childMsgRN)="onNotifyRN($event)"></app-input-rn>
+
+    <fieldset style="padding-bottom:20px;">
+      <legend class="fluxTitleGray">Période de consultation</legend> 
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px"> 
+        <mat-form-field>
+          <input matInput 
+            #dateBegin
+            [matDatepicker]="periodof"
+            placeholder="Période du"
+            formControlName="PeriodStartDate">
+          <mat-datepicker-toggle matSuffix [for]="periodof"></mat-datepicker-toggle>
+          <mat-datepicker #periodof></mat-datepicker>
+          <mat-error *ngIf="dateBegin.value">{{getDateError(dateBegin.value)}}</mat-error>
+
+          <mat-hint *ngIf="show.hint" style="color:red;">
+            La valeur doit être en format date YYYY-MM-DD. 
+          </mat-hint> 
+      
+          <mat-hint *ngIf="!show.hint"> Période du </mat-hint>
+        </mat-form-field>
+    
+        <mat-form-field>
+          <input matInput 
+            #dateEnd
+            [matDatepicker]="periodat"
+            placeholder="Période au"
+            formControlName="PeriodEndDate">
+          <mat-datepicker-toggle matSuffix [for]="periodat"></mat-datepicker-toggle>
+          <mat-datepicker #periodat></mat-datepicker>
+          <mat-error *ngIf="dateEnd.value">{{getDateError(dateEnd.value)}}</mat-error>
+
+          <mat-hint *ngIf="show.hint" style="color:red;">
+            La valeur doit être en format date YYYY-MM-DD. 
+          </mat-hint> 
+          
+          <mat-hint *ngIf="!show.hint"> Période au </mat-hint>
+        </mat-form-field> 
+    
+      </div>
+    </fieldset> 
+
+    <fieldset style="padding-bottom:20px;">
+      <legend class="fluxTitleGray">Informations souhaitées</legend> 
+      <div  fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px">
+
+        <mat-form-field fxFlex>
+          <mat-label>Piliers</mat-label>
+          <mat-select matTooltip="Piliers" required  formControlName="RequestedDataPillar">
+            <mat-option *ngFor="let p of RequestedDataPillar" [value]="p.value">
+              {{p.viewValue}}
+            </mat-option>
+          </mat-select>
+  
+          <mat-hint *ngIf="show.hint" class="hint-error">
+            La valeur doit être selectionneé. 
+          </mat-hint> 
+  
+          <mat-hint *ngIf="!show.hint">
+            En quelle RequestedDataPillar doit-être rédigé le contenu  
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <mat-label>Informations</mat-label>
+          <mat-select matTooltip="Informations" required  formControlName="RequestedDataRequestedInformation">
+            <mat-option *ngFor="let i of RequestedDataRequestedInformation" [value]="i.value">
+              {{i.viewValue}}
+            </mat-option>
+          </mat-select>
+  
+          <mat-hint *ngIf="show.hint" class="hint-error">
+            La valeur doit être selectionneé. 
+          </mat-hint> 
+  
+          <mat-hint *ngIf="!show.hint">
+            En quelle RequestedDataRequestedInformation doit-être rédigé le contenu  
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <mat-label>Type</mat-label>
+          <mat-select matTooltip="Type" required  formControlName="RequestedDataFocus">
+            <mat-option *ngFor="let f of RequestedDataFocus" [value]="f.value">
+              {{f.viewValue}}
+            </mat-option>
+          </mat-select>
+  
+          <mat-hint *ngIf="show.hint" class="hint-error">
+            La valeur doit être selectionneé. 
+          </mat-hint> 
+  
+          <mat-hint *ngIf="!show.hint">
+            En quelle RequestedDataFocus doit-être rédigé le contenu  
+          </mat-hint>
+        </mat-form-field>
+
+      </div>
+    </fieldset>
+ 
+    <div class="div-both"> </div>
+
+    <app-buttons-test-clear 
+      [form]="form" 
+      [formApi]="getValueFromInputApi()"> 
+    </app-buttons-test-clear>
+
+  </form>
+</mat-card>

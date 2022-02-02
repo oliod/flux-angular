@@ -1,0 +1,51 @@
+<mat-card>
+  <app-title-and-description ref-show></app-title-and-description>
+  <div class="div-both"> </div>
+      
+  <form [formGroup]="form">  
+    <app-input-rn [form]="form" [(hint)]="show.hint" (childMsgRN)="onNotifyRN($event)"></app-input-rn>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px">   
+      <mat-form-field fxFlex>
+        <mat-label>Nature personne</mat-label>
+        <mat-select  matTooltip="Nature personne" formControlName="nature">
+          <mat-option *ngFor="let nature of natures" [value]="nature.value">
+            {{nature.viewValue}}
+          </mat-option>
+        </mat-select>
+
+        <mat-hint *ngIf="show.hint" class="hint-error">
+          La valeur doit être selectionneé. 
+        </mat-hint> 
+
+        <mat-hint *ngIf="!show.hint">
+          Nature personne est une entité dotée de la personnalité juridique
+        </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <mat-label>Langue</mat-label>
+        <mat-select matTooltip="Langue" formControlName="langue">
+          <mat-option *ngFor="let lang of langs" [value]="lang.value">
+            {{lang.viewValue}}
+          </mat-option>
+        </mat-select>
+
+        <mat-hint *ngIf="show.hint" class="hint-error">
+          La valeur doit être selectionneé. 
+        </mat-hint> 
+
+        <mat-hint *ngIf="!show.hint">
+          En quelle langue doit-être rédigé le contenu  
+        </mat-hint>
+      </mat-form-field>
+    </div> 
+
+    <div class="div-both"> </div>
+    <app-buttons-test-clear 
+      [form]="form" 
+      [formApi]="getValueFromInputApi()"> 
+    </app-buttons-test-clear>
+
+  </form>
+</mat-card>
+    

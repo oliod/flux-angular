@@ -1,0 +1,32 @@
+<mat-card>
+    <app-title-and-description ref-show></app-title-and-description>
+    <div class="div-both"> </div>
+    <mat-tab-group (selectedIndexChange)="tabChanged($event)">
+  
+      <mat-tab label="LivingWagePeriods">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-lw-periods [(hint)]="show.hint"></app-lw-periods>
+      </mat-tab>
+  
+      <mat-tab label="LivingWagePeriodsFlanders">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-lw-periods-flanders [(hint)]="show.hint"></app-lw-periods-flanders>
+      </mat-tab>
+  
+      <mat-tab label="LivingWagePeriodsPerPCSA">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-lw-periods-per-pcsa [(hint)]="show.hint"></app-lw-periods-per-pcsa>
+      </mat-tab>
+  
+      <mat-tab label="LivingWagePeriodsPerPCSAFlanders">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-lw-periods-per-pcsa-flanders [(hint)]="show.hint"></app-lw-periods-per-pcsa-flanders>
+      </mat-tab>
+  
+      <mat-tab label="LivingWages">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-lw [(hint)]="show.hint"></app-lw>
+      </mat-tab>
+      
+    </mat-tab-group>
+  </mat-card>

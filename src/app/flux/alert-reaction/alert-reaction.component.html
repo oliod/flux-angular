@@ -1,0 +1,95 @@
+<mat-card>
+  <app-title-and-description ref-show></app-title-and-description>
+  <div class="div-both"> </div>
+  <form [formGroup]="form">         
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px"> 
+      <mat-form-field fxFlex>
+        <input matInput 
+          placeholder="ID de l’alerte émise par le SPP-IS"
+          formControlName="alertid" 
+          matTooltip="La BCSS transmet au CPAS la réponse du SPP-IS"
+          #m1 maxlength="20">
+        <mat-icon matSuffix>{{iconEdit}}</mat-icon>         
+        <mat-hint align="end" style="width: 70px;"> {{m1.value.length}} / 20 </mat-hint>
+
+        <mat-hint *ngIf="show.hint" class="hint-error">
+          La valeur doit être en format numérique. 
+        </mat-hint> 
+
+        <mat-hint *ngIf="!show.hint">
+          Cet élément doit être unique sur l’ensemble des motivations. 
+          En cas de doublons, un message d’erreur (MSG00008) sera retourné au client. 
+        </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input matInput 
+          placeholder="Numéro de référence" 
+          formControlName="reference" 
+          matTooltip="Numéro de référence"
+          #m2 maxlength="20" pattern="\d+$">
+        <mat-icon matSuffix>{{iconEdit}}</mat-icon>
+        <mat-hint align="end" style="width: 70px;"> {{m2.value.length}} / 20 </mat-hint>
+                        
+        <mat-hint *ngIf="show.hint" class="hint-error">
+          La valeur doit être en format numérique. 
+        </mat-hint> 
+
+        <mat-hint *ngIf="!show.hint">
+          Le numéro du formulaire concerné par l'alerte. 
+          Ce numéro correspond au numéro de référence IS du SPP
+          (tel qu’indiqué lors de la soumission du formulaire).
+        </mat-hint>
+                         
+      </mat-form-field>
+    </div>
+
+    <div class="div-both"> </div>
+
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px"> 
+      <mat-form-field fxFlex>
+        <input matInput 
+          placeholder="Codes de motivation"
+          formControlName="motivation" 
+          matTooltip="Codes de motivation" 
+          #m3 maxlength="20">
+        <mat-icon matSuffix>{{iconEdit}}</mat-icon>
+        <mat-hint align="end"> {{m3.value.length}} / 20 </mat-hint>
+                            
+        <mat-hint *ngIf="show.hint" class="hint-error">
+          La valeur doit être en format numérique. 
+        </mat-hint> 
+    
+        <mat-hint *ngIf="!show.hint">
+          Code de la motivation actuelle donnée par le CPAS / OCMW 
+        </mat-hint>               
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input matInput 
+          placeholder="Commentaire"
+          formControlName="comment" 
+          matTooltip="Commentaire" 
+          #m4 maxlength="100">
+        <mat-icon matSuffix>{{iconEdit}}</mat-icon>
+        <mat-hint align="end"> {{m4.value.length}} / 100 </mat-hint>
+                                
+        <mat-hint *ngIf="show.hint" class="hint-error">
+          La valeur doit être en format text 
+          ( Modèle: "[a-zA-Z0-9\_\,\+\;\-\.\=\!\?]" ) . 
+        </mat-hint> 
+        
+        <mat-hint *ngIf="!show.hint">
+          Commentaire textuel pouvant être ajouté à la motivation 
+        </mat-hint>                        
+      </mat-form-field>
+    </div> 
+
+    <div class="div-both"> </div>
+    <app-buttons-test-clear  
+      [form]="form" 
+      [formApi]="getValueFromInputApi()"> 
+    </app-buttons-test-clear>
+
+  </form> 
+</mat-card>

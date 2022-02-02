@@ -1,0 +1,52 @@
+/*
+.fab-container > div.column  {
+  display: unset!important;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+  position: relative;
+  left: 300px;
+  top: -50px;
+}
+*/
+
+.fab-container {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  
+  > div.column {
+      margin-top: 15px;
+      position: relative;
+      left: 120px;
+    button {
+      margin-top: 0px;
+    }
+  }
+  
+  > div.column-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-bottom: 0px;
+  
+    button {
+      margin-bottom: 0px;
+    }
+  }
+}
+  
+.fab-toggler {
+  z-index: 100;
+}
+  
+#fab-dismiss {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+}
+  

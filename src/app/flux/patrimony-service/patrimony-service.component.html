@@ -1,0 +1,22 @@
+<mat-card>
+    <app-title-and-description ref-show></app-title-and-description>
+    <div class="div-both"> </div>
+    <mat-tab-group (selectedIndexChange)="tabChanged($event)">
+               
+      <mat-tab label="EnterpriseImmovableProperties">
+        <div style="margin-bottom: 20px;"> </div> 
+        <app-ent-immovable-properties [(hint)]="show.hint"></app-ent-immovable-properties>
+      </mat-tab>
+      
+      <mat-tab label="ImmovableProperties">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-immovable-properties [(hint)]="show.hint"></app-immovable-properties>
+      </mat-tab>
+  
+      <mat-tab label="ConsultCarmedAtAgreementDate">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-find-division-by-ent-number [(hint)]="show.hint"></app-find-division-by-ent-number>
+      </mat-tab>
+  
+    </mat-tab-group>
+  </mat-card>

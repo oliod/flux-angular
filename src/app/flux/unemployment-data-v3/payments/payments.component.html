@@ -1,0 +1,30 @@
+<form [formGroup]="form"> 
+    <app-input-rn [form]="form" [(hint)]="hint" (childMsgRN)="onNotifyRN($event)"></app-input-rn>
+    <div  fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px">  
+      <mat-form-field>
+        <input matInput 
+          #date
+          [matDatepicker]="periodof"
+          formControlName="date"
+          placeholder="Date">
+        <mat-datepicker-toggle matSuffix [for]="periodof"></mat-datepicker-toggle>
+        <mat-datepicker #periodof></mat-datepicker>
+        <mat-error *ngIf="date.value">{{getDateError(date.value)}}</mat-error>
+
+        <mat-hint *ngIf="hint" style="color:red;">
+          La valeur doit être en format date YYYY-MM. 
+        </mat-hint> 
+
+        <mat-hint *ngIf="!hint"> Date </mat-hint>
+      </mat-form-field>
+
+    </div>
+
+    <div class="div-both"> </div>
+
+    <app-buttons-test-clear 
+      [form]="form" 
+      [formApi]="getValueFromInputApi()"> 
+    </app-buttons-test-clear>
+
+  </form>

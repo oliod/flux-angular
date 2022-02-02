@@ -1,0 +1,15 @@
+<mat-card>
+    <app-title-and-description ref-show></app-title-and-description>
+    <div class="div-both"> </div>
+        
+    <form [formGroup]="form">
+      <app-input-rn [form]="form" [(hint)]="show.hint" (childMsgRN)="onNotifyRN($event)"></app-input-rn>
+  
+      <app-buttons-test-clear 
+        [form]="form" 
+        [formApi]="getValueFromInputApi()"> 
+      </app-buttons-test-clear>
+      
+    </form>
+  </mat-card>       
+  

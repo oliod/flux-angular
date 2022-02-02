@@ -1,0 +1,63 @@
+<mat-card>
+    <app-title-and-description ref-show></app-title-and-description>
+    <div class="div-both"> </div>
+    <mat-tab-group (selectedIndexChange)="tabChanged($event)">
+           
+      <mat-tab label="ActivationPaidSums">
+        <div style="margin-bottom: 20px;"> </div> 
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>
+      </mat-tab>
+  
+      <mat-tab label="ExemptionHistory">
+        <div style="margin-bottom: 20px;"> </div>
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>
+      </mat-tab>
+  
+      <mat-tab label="NoEarningCapacityAndLawsuitMutuality">
+        <div style="margin-bottom: 20px;"> </div>
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>
+      </mat-tab>
+  
+      <mat-tab label="PaidSums">
+        <div style="margin-bottom: 20px;"> </div>
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>
+      </mat-tab>
+  
+      <mat-tab label="Payments"> 
+        <div style="margin-bottom: 20px;"> </div>
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>
+      </mat-tab>
+  
+      <mat-tab label="Rights"> 
+        <div style="margin-bottom: 20px;"> </div>
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>
+      </mat-tab>
+  
+      <mat-tab label="SanctionHistory"> 
+        <div style="margin-bottom: 20px;"> </div>
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>
+      </mat-tab>
+  
+      <mat-tab label="ScaleCodeHistory"> 
+        <div style="margin-bottom: 20px;"> </div>   
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>
+      </mat-tab>
+  
+      <mat-tab label="ScheduledPayment"> 
+        <div style="margin-bottom: 20px;"> </div>
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>
+      </mat-tab>
+  
+      <mat-tab label="WorkDisabilityHistory"> 
+        <div style="margin-bottom: 20px;"> </div> 
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>
+      </mat-tab>
+  
+      <mat-tab label="YoungAvailabilityDecisionHistory"> 
+        <div style="margin-bottom: 20px;"> </div> 
+        <div class="mat-hint ng-star-inserted"> {{messageContent}} </div>   
+      </mat-tab>
+  
+    </mat-tab-group>
+  
+  </mat-card> 

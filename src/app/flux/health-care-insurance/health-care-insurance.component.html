@@ -1,0 +1,49 @@
+<mat-card>
+  <app-title-and-description ref-show></app-title-and-description>
+  <div class="div-both"> </div>
+    
+  <form [formGroup]="form">
+    <app-input-rn [form]="form" [(hint)]="show.hint" (childMsgRN)="onNotifyRN($event)"></app-input-rn>
+
+    <fieldset style="padding-bottom:20px;" >
+      <legend class="fluxTitleGray"> Critère de temps </legend> 
+      <div  fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px"> 
+        <mat-form-field>            
+          <input matInput 
+            placeholder="Date" 
+            formControlName="date"
+            [matDatepicker]="datepickerRef"/>
+          <mat-datepicker-toggle [for]="datepickerRef" matSuffix> </mat-datepicker-toggle>
+          <mat-datepicker #datepickerRef></mat-datepicker>
+
+          <mat-hint *ngIf="show.hint" style="color:red;">
+            La valeur doit être en format date . 
+          </mat-hint> 
+
+          <mat-hint *ngIf="!show.hint"> Date critère de temps </mat-hint>
+
+        </mat-form-field>
+      </div>
+    </fieldset>  
+
+    <fieldset style="padding-bottom:20px;" >
+      <legend class="fluxTitleGray"> Données désirées </legend> 
+      <mat-checkbox (click)="actionCheckBox(-1)">
+        <span *ngIf="chk" style="color: #ff4081;"> Désélectionner </span>
+        <span *ngIf="!chk" style="color:green"> Sélectionner </span> 
+      </mat-checkbox> 
+
+      <mat-checkbox
+        *ngFor="let c of desiredData; let index = index" checked = {{c.check}} (click)="actionCheckBox(index)"> 
+        {{c.viewValue}} 
+      </mat-checkbox>        
+    </fieldset> 
+
+    <div class="div-both"> </div>
+    <app-buttons-test-clear 
+      [form]="form" 
+      [formApi]="getValueFromInputApi()"> 
+    </app-buttons-test-clear>
+
+  </form>
+</mat-card> 

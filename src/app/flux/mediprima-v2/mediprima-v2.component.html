@@ -1,0 +1,72 @@
+<mat-card>
+    <app-title-and-description ref-show></app-title-and-description>
+    <div class="div-both"> </div>
+    <mat-tab-group (selectedIndexChange)="tabChanged($event)">
+               
+      <mat-tab label="CloseCarmed">
+        <div style="margin-bottom: 20px;"> </div> 
+        <app-close-carmed [(hint)]="show.hint"></app-close-carmed>
+      </mat-tab>
+      
+      <mat-tab label="ConsultCarmed">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-consult-carmed [(hint)]="show.hint"></app-consult-carmed>
+      </mat-tab>
+  
+      <mat-tab label="ConsultCarmedAtAgreementDate">
+        <div style="margin-bottom: 20px;"> </div>
+         <app-cc-at-agreement-date [(hint)]="show.hint"></app-cc-at-agreement-date>
+      </mat-tab>
+  
+      <mat-tab label="ConsultCarmedByVersion">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-cc-by-version [(hint)]="show.hint"></app-cc-by-version>
+      </mat-tab>
+  
+      <mat-tab label="ConsultCarmedCoverage">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-cc-coverage [(hint)]="show.hint"></app-cc-coverage>
+      </mat-tab>
+  
+      <mat-tab label="ConsultCarmedIntervention">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-cc-intervention [(hint)]="show.hint"></app-cc-intervention>
+      </mat-tab>
+  
+      <mat-tab label="ConsultUrgentMedicalAidAttestation">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-c-urgent-medical [(hint)]="show.hint"></app-c-urgent-medical>
+      </mat-tab>
+
+      <mat-tab label="EvaluateCarmed">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-evaluate-carmed [(hint)]="show.hint"></app-evaluate-carmed>
+      </mat-tab>
+
+      <mat-tab label="EvaluateModifiedCarmed">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-evaluate-modified-carmed [(hint)]="show.hint"></app-evaluate-modified-carmed>
+      </mat-tab>
+
+      <mat-tab label="ModifyCarmed">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-modify-carmed [(hint)]="show.hint"></app-modify-carmed>
+      </mat-tab>
+
+      <mat-tab label="OpenCarmed">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-open-carmed [(hint)]="show.hint"></app-open-carmed>
+      </mat-tab>
+
+      <mat-tab label="QueryCarmedManager">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-query-carmed-manager [(hint)]="show.hint"></app-query-carmed-manager>
+      </mat-tab>
+
+      <mat-tab label="StopCarmed">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-stop-carmed [(hint)]="show.hint"></app-stop-carmed>
+      </mat-tab>
+      
+    </mat-tab-group>
+  </mat-card>

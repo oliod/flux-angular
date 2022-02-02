@@ -1,0 +1,101 @@
+<form [formGroup]="form"> 
+    <app-input-rn [form]="form" [(hint)]="hint" (childMsgRN)="onNotifyRN($event)"></app-input-rn>
+    <div  fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px">  
+
+      <!-- BEGIN -->
+      <mat-form-field fxFlex style="width: 200px!important;">
+        <mat-label>Début trimestre</mat-label>
+        <mat-select required
+          matTooltip="Début trimestre"
+          formControlName="quadrBegin"
+          [ngModel]="selected">
+          <mat-option 
+            *ngFor="let beginQ of quadr" [value]="beginQ.value === selected ? selected : beginQ.value">
+            {{beginQ.viewValue}}
+          </mat-option>
+        </mat-select>
+
+        <mat-hint *ngIf="hint" class="hint-error">
+          La valeur doit être selectionneé. 
+        </mat-hint> 
+
+        <mat-hint *ngIf="!hint"> </mat-hint>
+      </mat-form-field>
+      <!-- END -->
+
+      <mat-form-field fxFlex style="width: 200px!important;">
+        <input matInput 
+          #dateBegin
+          [matDatepicker]="periodof"
+          formControlName="dateBegin"
+          placeholder="Période du">
+        <mat-datepicker-toggle matSuffix [for]="periodof"></mat-datepicker-toggle>
+        <mat-datepicker 
+          #periodof 
+          startView="multi-year"
+          (yearSelected)="chosenYearHandler($event, periodof, 'dateBegin')">
+        </mat-datepicker>
+        <mat-error *ngIf="dateBegin.value">{{getDateError(dateBegin.value)}}</mat-error>
+
+        <mat-hint *ngIf="hint" style="color:red;">
+          La valeur doit être en format date YYYY. 
+        </mat-hint> 
+
+        <mat-hint *ngIf="!hint"> Période du </mat-hint>
+      </mat-form-field>
+
+    </div>
+    <div class="div-both"> </div>
+    <div  fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px">   
+
+      <!-- BEGIN -->
+      <mat-form-field fxFlex style="width: 200px!important;">
+        <mat-label>Fin trimestre</mat-label>
+        <mat-select required  
+          matTooltip="Fin trimestre"
+          formControlName="quadrEnd"
+          [ngModel]="selected">
+          <mat-option 
+            *ngFor="let endQ of quadr" [value]="endQ.value === selected ? selected : endQ.value">
+            {{endQ.viewValue}}
+          </mat-option>
+        </mat-select>
+
+        <mat-hint *ngIf="hint" class="hint-error">
+          La valeur doit être selectionneé. 
+        </mat-hint> 
+
+        <mat-hint *ngIf="!hint"> </mat-hint>
+      </mat-form-field>
+      <!-- END -->
+
+      <mat-form-field fxFlex style="width: 200px!important;">
+        <input matInput
+          #dateEnd 
+          [matDatepicker]="periodat"
+          formControlName="dateEnd"
+          placeholder="Période au">
+        <mat-datepicker-toggle matSuffix [for]="periodat"></mat-datepicker-toggle>
+        <mat-datepicker 
+          #periodat
+          startView="multi-year"
+          (yearSelected)="chosenYearHandler($event, periodat, 'dateEnd')">
+        </mat-datepicker>
+        <mat-error *ngIf="dateEnd.value">{{getDateError(dateEnd.value)}}</mat-error>
+
+        <mat-hint *ngIf="hint" style="color:red;">
+            La valeur doit être en format date YYYY. 
+        </mat-hint> 
+    
+        <mat-hint *ngIf="!hint"> Période au </mat-hint>
+      </mat-form-field> 
+    </div>
+
+    <div class="div-both"> </div>
+
+    <app-buttons-test-clear 
+      [form]="form" 
+      [formApi]="getValueFromInputApi()"> 
+    </app-buttons-test-clear>
+
+  </form>

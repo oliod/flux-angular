@@ -1,0 +1,8 @@
+{
+    "/php5/*": {
+      "target": "http://10.10.0.148:80",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+}

@@ -1,0 +1,31 @@
+
+<mat-toolbar color="primary">
+  <button 
+    mat-icon-button id="menu" 
+    (click)="navService.openNav()" 
+    matTooltip="Menu BCSS">
+    <mat-icon>{{iconMenu}}</mat-icon>
+  </button>
+   
+  <span> Console BCSS </span>
+
+  <app-speed-dial-fab
+    (fabClick)="onSpeedDialFabClicked($event)" 
+    [buttons]="speedDialFabButtonsEnv">
+  </app-speed-dial-fab> 
+ 
+  <div style="position: absolute; float: right; top: -10px; right: -10px;">
+    <mat-toolbar 
+      style="background: unset;" 
+      matTooltip="Changer le theme">
+      <mat-slide-toggle (change)="onThemeChange($event)"> </mat-slide-toggle>
+    </mat-toolbar>
+  </div>
+
+  <div class="marking-bcss">
+    Banque Carrefour de la Sécurité Sociale 
+  </div>
+
+</mat-toolbar>
+
+ 

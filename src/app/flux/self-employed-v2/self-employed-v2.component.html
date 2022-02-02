@@ -1,0 +1,18 @@
+<mat-card>
+  <app-title-and-description ref-show></app-title-and-description>
+  <div class="div-both"> </div>
+  <mat-tab-group (selectedIndexChange)="tabChanged($event)">
+           
+    <mat-tab label="Carriere">
+        <div style="margin-bottom: 20px;"> </div> 
+        <app-carriere [(hint)]="show.hint"></app-carriere>
+    </mat-tab>
+  
+    <mat-tab label="Contributions">
+        <div style="margin-bottom: 20px;"> </div>
+        <app-contributions [(hint)]="show.hint"></app-contributions>
+    </mat-tab>
+  
+  </mat-tab-group>
+</mat-card> 
+

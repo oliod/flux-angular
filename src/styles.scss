@@ -1,0 +1,321 @@
+/* global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body { 
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+@import './app/theme';
+
+// Include the base styles for Angular Material core.
+// have to load a single css file for Angular Material in app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Include theme styles for core and each component used in app.
+// Alternatively, you can import and @include the theme mixins for each component that are using.
+@include angular-material-theme($app-theme);
+
+.container {
+  flex-direction: column; 
+  display: flex;
+  color: rgba(0,0,0,0.87);
+  border-radius: 4px;
+  min-height: 20px;
+  padding: 19px;
+  margin: 20px;
+  background: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  max-width: 1117px;
+  min-width: 70%; 
+  margin: 20px auto; 
+}
+
+a {
+  text-decoration-color: mat-color($app-primary);
+  color: mat-color($app-primary);
+}
+
+.mat-raised-button {
+  margin:5px!important;
+}
+
+.fluxTitle {
+  margin: 1px 5px;
+  color: #3f51b5;
+  padding: .2em .6em .3em;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.fluxTitleGray {
+  margin: 1px 5px;
+  color: gray;
+  padding: .2em .6em .3em;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.mat-toolbar.mat-primary {
+  color: white;   
+  border-bottom: 0px solid #ff4081;
+}
+
+.mat-form-field, mat-slide-toggle {
+  display:unset!important;
+}
+
+mat-toolbar {
+  height:65px!important;
+  box-shadow: unset!important;
+}
+
+mat-slide-toggle {
+  padding: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+mat-slide-toggle span.act, mat-slide-toggle span.inact {
+  font-size:12px;
+}
+
+mat-slide-toggle span.act {
+  color: red
+}
+
+mat-slide-toggle span.inact {
+  color:gray;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgba(255,64,129,0.5);
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: rgb(255,64,129);
+}
+
+.mat-drawer-content {
+  overflow-x: hidden!important;   
+}
+
+.version-info, .mat-toolbar.mat-primary, .toolbar {
+  background: rgb(79,94,175)!important;
+  background: linear-gradient(180deg, rgba(79,94,175,1) 0%, rgba(23,33,105,1) 95%, rgba(255,105,135,1) 95%, rgba(255,64,129,1) 100%)!important;
+}
+
+.version-info {
+  font-size: 8pt;
+  padding: 8px;
+  align-self: center;
+  width: 100%;
+  color: #efeded;
+  bottom: 0;
+}
+
+.version-info span {
+  float: right;
+  position: relative;
+  margin-right: 10px;
+}
+
+pre span {white-space: normal; }
+  .string { color:navy; }
+  .number { color:red; font-weight: bold; }
+  .boolean { color:red; }
+  .null { color: olive; }
+  .key { color: green; font-weight: bold; }
+
+.mat-accordion .key { text-transform: uppercase; }
+
+pre { color:green; } 
+
+fieldset { 
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: inset 0 3px 10px rgba(0,0,0,.05);
+}
+
+.mat-slide-toggle-label{
+  margin-left:10px;
+}
+
+.address {
+  margin:10px auto auto auto;
+  font-size:11px;
+  color:gray;
+}
+
+.hint-error {
+  color:red!important;  
+}
+
+.logo-bcss {
+  padding: 5px 97px 5px 96px;
+  position: absolute; 
+  bottom: 0px; 
+  z-index: 1; 
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px
+  rgba(0, 0, 0, 0.12); 
+  border: 1px solid rgb(207, 207, 207); 
+  background:white;
+  opacity: 0.9;
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+  font-size: 12px;
+  color:green;
+  width: 180px;
+}
+
+.mat-checkbox {
+  margin-bottom: 0px!important;
+}
+
+app-progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.div-both {
+  width:100%; 
+  display: block;
+  margin-top:70px;
+  clear: both;
+}
+
+.mat-accordion .mat-card-content > :first-child, .mat-card > :first-child {
+  margin-top: 0px;
+  position: absolute;
+  z-index: 2;
+  left: 15px;
+  right: 15px;
+}
+
+.mat-accordion .mat-expansion-panel-body {
+  /* margin-top: -20px; */ 
+  /* padding: 0 24px 0px; */
+  background: white;
+}
+
+.mat-accordion mat-expansion-panel-header {
+  padding: 0px 24px 0px 0px;
+}
+
+.mat-accordion mat-expansion-panel {
+  background: #4f5eaf!important;
+  color:white;
+}
+
+.mat-accordion mat-expansion-panel .fluxTitle {
+  color:white;
+}
+
+.mat-accordion .mat-expansion-panel:last-of-type {
+  border-bottom-right-radius: 0px!important;
+  border-bottom-left-radius: 0px!important;
+}
+
+mat-expansion-panel-header {
+  height: 48px!important;
+}
+
+.mat-expansion-indicator::after {
+  color: white!important;
+}
+.msg-rn {
+  color:gray;
+}
+
+app-title-and-description {
+  z-index: 3!important;
+}
+
+.mat-tab-header {
+  margin-top: -20px;
+}
+
+.mat-simple-snackbar-action {
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+  background-color: #1a237e;  
+  border-radius: 4px;
+  color: white!important;
+}
+
+.mat-mini-fab {
+  width: 20px!important;
+  height: 20px!important;
+  top: 20px!important;
+  left: -10px;
+}
+
+.mat-mini-fab i {
+  padding: 0px 0!important;
+  position: relative;
+  top: -10px;
+  line-height: 24px;
+  left: -2px;
+}
+
+.cdk-overlay-pane {
+  position: fixed !important;
+  opacity: 0.9;   
+}
+
+.marking-bcss {
+  position: absolute; 
+  float: right; 
+  font-size: 12px;
+  color:#4D5CAC;
+  top: 35px; right: 10px;
+}
+
+.mat-dialog-container {  
+  overflow-x: hidden!important; 
+  padding-bottom: 20px!important;
+  padding-left: 0px!important;
+  padding-right: 0px!important;
+  padding-top:0px!important;
+  box-sizing: border-box!important;
+  display: flex!important;
+  flex-direction: column!important;
+  position: relative!important;
+  z-index: 2!important;
+  min-height: 64px!important;
+  width: 100%!important;
+  border: 1px solid gray;
+}
+
+.mat-dialog-container:active {
+  opacity: 1;
+}
+
+.ngx-json-viewer {
+  font-family: unset!important;
+  font-size: unset!important;
+  width: unset!important;
+  height: unset!important;
+  overflow: unset!important;
+  font-size: large;
+  padding: 5px!important;
+}
+
+.mat-snack-bar-container {
+  position: fixed;
+  left: 50%;
+  top: 0%;
+  transform: translate3d(-50%,0,0) !important;
+  padding: 5px!important;
+  margin:5px!important;
+  /* background: linear-gradient(180deg, #4f5eaf 0%, #172169 95%, #ff6987 95%, #ff4081 100%) !important; */
+}

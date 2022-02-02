@@ -1,0 +1,78 @@
+<mat-card>
+  <app-title-and-description ref-show></app-title-and-description>
+  <div class="div-both"> </div>
+    
+  <form [formGroup]="form">
+    <app-input-rn [form]="form" [(hint)]="show.hint" (childMsgRN)="onNotifyRN($event)"></app-input-rn>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px"> 
+      <mat-form-field fxFlex>
+        <mat-label>Scope</mat-label>
+        <mat-select matTooltip="Scope" formControlName="scope" [(value)]="selected">
+          <mat-option *ngFor="let scope of scopes" [value]="scope.value">
+            {{scope.viewValue}}
+          </mat-option>
+        </mat-select>
+
+        <mat-hint *ngIf="show.hint" class="hint-error">
+          La valeur doit être selectionneé. 
+        </mat-hint> 
+    
+        <mat-hint *ngIf="!show.hint">
+          La BCSS vérifie si le NISS de la personne consultée est effectivement connu
+          dans les différentes sources avant de procéder à la demande auprès de cette source 
+        </mat-hint>
+    
+      </mat-form-field>
+    </div> 
+    
+    <!-- DATE -->
+    <div class="div-both"> </div>
+     
+      <div fxLayout="row" 
+        fxLayout.lt-md="column" 
+        fxLayoutGap="30px" 
+        fxLayoutGap.lt-md="50px"
+        *ngIf="selected ==='activeInPeriod' || selected ==='mutations'" >    
+        <mat-form-field>
+          <input matInput 
+            [matDatepicker]="periodof"
+            placeholder="Période du" 
+            formControlName="dateBegin">
+
+          <mat-datepicker-toggle matSuffix [for]="periodof"></mat-datepicker-toggle>
+          <mat-datepicker #periodof></mat-datepicker>
+
+          <mat-hint *ngIf="show.hint" style="color:red;">
+            La valeur doit être en format date YYYY-MM. 
+          </mat-hint> 
+  
+          <mat-hint *ngIf="!show.hint"> Période du </mat-hint>
+        </mat-form-field>
+               
+        <mat-form-field>
+          <input matInput 
+            [matDatepicker]="periodat" 
+            placeholder="Période au" 
+            formControlName="dateEnd">
+
+          <mat-datepicker-toggle matSuffix [for]="periodat"></mat-datepicker-toggle>
+          <mat-datepicker #periodat></mat-datepicker>
+
+          <mat-hint *ngIf="show.hint" style="color:red;">
+            La valeur doit être en format date YYYY-MM. 
+          </mat-hint> 
+      
+          <mat-hint *ngIf="!show.hint"> Période au </mat-hint>
+        </mat-form-field> 
+      </div>
+<!-- DATE -->
+
+    <div class="div-both"> </div>
+    <app-buttons-test-clear 
+      [form]="form" 
+      [formApi]="getValueFromInputApi()"> 
+    </app-buttons-test-clear>
+
+  </form>
+</mat-card>
+       

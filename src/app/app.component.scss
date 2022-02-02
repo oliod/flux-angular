@@ -1,0 +1,84 @@
+@import './breakpoints';
+@import './theme';
+
+
+/* #3f51b5 */
+.mat-sidenav {
+  width: 300px;
+  border-right: 5px solid #1f2770 !important;
+}
+
+.mat-sidenav-container {
+  background-color: white !important;
+  height: 100vh;
+  box-shadow: 0 1px 3px 0#8192ea ,0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px #8192ea;
+   
+  .mat-sidenav-content {
+    display: flex;
+    flex-direction: column; 
+  }
+}
+
+.sidenav-toolbar {
+  background-color: mat-color($app-primary);
+  display: flex;
+  flex-direction: row;  
+}
+ 
+/* BEGINNING STYLE NAVIGATION  */
+.mat-nav-list {
+  padding-top: 0;
+}
+
+.mat-list-base {
+  margin-bottom: 55px;
+}
+
+.nav-list.mat-list-item {
+  .mat-list-item-content {
+    flex: 1 1 100%;
+  }
+}
+
+.mat-list-item {
+  padding: 8px 0;
+  display: flex;
+  width: auto;
+
+  .routeIcon {
+    margin-right: 40px;
+  }
+}
+
+.mat-list-base .mat-list-item, 
+.mat-list-base .mat-list-option {
+    display: block;
+    height: 38px!important;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    padding: 0;
+}
+
+.mat-list-base .mat-list-item .mat-list-item-content, 
+.mat-list-base .mat-list-option .mat-list-item-content {
+    font-size: 12px;
+}
+
+.mat-list-item, .routeIcon {
+    margin-right: 10px!important
+}
+
+/* END STYLE NAVIGATION  */
+ 
+.speed-dial-container {
+  position: absolute;
+  right: 15px;
+}
+
+.speed-dial-container.top {
+  top: 15px;
+}
+
+.speed-dial-container.bottom {
+  bottom: 15px;
+}

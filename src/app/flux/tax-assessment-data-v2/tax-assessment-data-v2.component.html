@@ -1,0 +1,104 @@
+<mat-card>
+  <app-title-and-description ref-show></app-title-and-description>
+  <div class="div-both"> </div>
+      
+  <form [formGroup]="form">
+    <app-input-rn [form]="form" [(hint)]="show.hint" (childMsgRN)="onNotifyRN($event)"></app-input-rn>
+
+
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px">
+    <mat-form-field style="max-width: 200px!important;">
+      <input matInput 
+        required
+        #date
+        [matDatepicker]="periodof"
+        formControlName="date"
+        placeholder="Date">
+      <mat-datepicker-toggle matSuffix [for]="periodof"></mat-datepicker-toggle>
+      <mat-datepicker 
+        #periodof 
+        startView="multi-year"
+        (yearSelected)="chosenYearHandler($event, periodof, 'date')">
+      </mat-datepicker>
+      <mat-error *ngIf="date.value">{{getDateError(date.value)}}</mat-error>
+
+      <mat-hint *ngIf="hint" style="color:red;">
+        La valeur doit être en format date YYYY. 
+      </mat-hint> 
+
+      <mat-hint *ngIf="!hint"> L’année de revenu devant explicitement être consultée. </mat-hint>
+    </mat-form-field>
+    </div>
+
+
+    <div class="div-both"> </div>
+    <fieldset style="padding-bottom:70px;">
+      <legend class="fluxTitleGray">Informations souhaitées</legend> 
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px">
+
+        <mat-form-field fxFlex>
+          <mat-label>Extrait de rôle</mat-label>
+          <mat-select matTooltip="Extrait de rôle" formControlName="derivedYear">
+            <mat-option *ngFor="let dy of derivedYear" [value]="dy.value">
+              {{dy.viewValue}}
+            </mat-option>
+          </mat-select>
+  
+          <mat-hint *ngIf="show.hint" class="hint-error">
+            Extrait de rôle. 
+          </mat-hint> 
+  
+          <mat-hint *ngIf="!show.hint">
+            L’année de revenu pouvant être dérivée automatiquement. 
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <mat-label>Elements</mat-label>
+          <mat-select matTooltip="Elements" formControlName="elements">
+            <mat-option *ngFor="let elem of elements" [value]="elem.value">
+              {{elem.viewValue}}
+            </mat-option>
+          </mat-select>
+  
+          <mat-hint *ngIf="show.hint" class="hint-error">
+            elements. 
+          </mat-hint> 
+  
+          <mat-hint *ngIf="!show.hint">
+            Chaque element correspond à un concept fiscal - 
+            (exemple de valeur possible : GLOBAL_TAXABLE_INCOME)
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <mat-label>Groups</mat-label>
+          <mat-select matTooltip="Groups"  formControlName="groups">
+            <mat-option *ngFor="let grp of groups" [value]="grp.value">
+              {{grp.viewValue}}
+            </mat-option>
+          </mat-select>
+  
+          <mat-hint *ngIf="show.hint" class="hint-error">
+            Groups. 
+          </mat-hint> 
+  
+          <mat-hint *ngIf="!show.hint">
+            Un group correspond à plusieurs element, permettant de les demander en une seule fois - 
+            (exemple de valeur possible : group TAXABLE_INCOME pour elements GLOBAL_TAXABLE_INCOME, ...).  
+          </mat-hint>
+        </mat-form-field>
+
+      </div>
+    </fieldset>
+
+
+
+    <div class="div-both"> </div>
+    <app-buttons-test-clear 
+      [form]="form" 
+      [formApi]="getValueFromInputApi()"> 
+    </app-buttons-test-clear>
+    
+  </form>
+</mat-card>       

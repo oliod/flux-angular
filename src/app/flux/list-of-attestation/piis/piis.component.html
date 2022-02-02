@@ -1,0 +1,9 @@
+<form [formGroup]="form"> 
+  <app-input-rn [form]="form" [(hint)]="hint" (childMsgRN)="onNotifyRN($event)"></app-input-rn>
+
+  <app-buttons-test-clear 
+    [form]="form" 
+    [formApi]="getValueFromInputApi()"> 
+  </app-buttons-test-clear>
+
+  </form>

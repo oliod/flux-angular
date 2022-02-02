@@ -1,0 +1,81 @@
+<mat-card>
+  <app-title-and-description ref-show></app-title-and-description>
+  <div class="div-both"> </div>
+    
+  <form [formGroup]="form">
+    <app-input-rn [form]="form" [(hint)]="show.hint" (childMsgRN)="onNotifyRN($event)"></app-input-rn>
+
+    <fieldset style="padding-bottom:20px;" >
+      <legend class="fluxTitleGray"> Informations à une date de référence </legend> 
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px"> 
+        <mat-form-field>
+          <input matInput 
+            [matDatepicker]="periodn"
+            placeholder="Reference Date"
+            formControlName="referenceDate">
+          <mat-datepicker-toggle matSuffix [for]="periodn"></mat-datepicker-toggle>
+          <mat-datepicker #periodn disabled="false"></mat-datepicker>
+  
+          <mat-hint *ngIf="show.hint" style="color:red;">
+            La valeur doit être en format date YYYY-MM. 
+          </mat-hint> 
+    
+          <mat-hint *ngIf="!show.hint"> Période du </mat-hint>
+
+        </mat-form-field>
+      </div>
+      <div class="div-both" style="margin-top: 20px;"> </div>
+
+      <mat-checkbox style="width: auto!important;" formControlName="evolutionOfRequest"> Demande </mat-checkbox> 
+      <mat-checkbox style="width: auto!important;" formControlName="handicapRecognition"> Reconnaissance </mat-checkbox> 
+      <mat-checkbox style="width: auto!important;" formControlName="rights"> Droits </mat-checkbox> 
+      <mat-checkbox style="width: auto!important;" formControlName="socialCards"> Cartes sociales </mat-checkbox>   
+       
+    </fieldset>
+
+    <fieldset style="padding-bottom:20px;" >
+      <legend class="fluxTitleGray"> Paiements pour une période </legend> 
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxLayoutGap.lt-md="50px"> 
+        <mat-form-field>
+          <input matInput 
+            [matDatepicker]="periodof"
+            placeholder="Période du"
+            formControlName="paymentsAtPeriodStartDate">
+          <mat-datepicker-toggle matSuffix [for]="periodof"></mat-datepicker-toggle>
+          <mat-datepicker #periodof></mat-datepicker>
+
+          <mat-hint *ngIf="show.hint" style="color:red;">
+            La valeur doit être en format date YYYY-MM. 
+          </mat-hint> 
+        
+          <mat-hint *ngIf="!show.hint"> Période du </mat-hint>
+      
+        </mat-form-field>
+      
+        <mat-form-field>
+          <input matInput 
+            [matDatepicker]="periodat"
+            placeholder="Période au"
+            formControlName="paymentsAtPeriodEndDate">
+          <mat-datepicker-toggle matSuffix [for]="periodat"></mat-datepicker-toggle>
+          <mat-datepicker #periodat></mat-datepicker>
+
+          <mat-hint *ngIf="show.hint" style="color:red;">
+            La valeur doit être en format date YYYY-MM. 
+          </mat-hint> 
+            
+          <mat-hint *ngIf="!show.hint"> Période au </mat-hint>
+
+        </mat-form-field> 
+      
+      </div>
+    </fieldset>    
+
+    <div class="div-both"> </div>
+    <app-buttons-test-clear 
+      [form]="form" 
+      [formApi]="getValueFromInputApi()"> 
+    </app-buttons-test-clear>
+
+  </form>
+</mat-card>      

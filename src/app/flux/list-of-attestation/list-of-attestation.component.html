@@ -1,0 +1,42 @@
+<mat-card>
+  <app-title-and-description ref-show></app-title-and-description>
+  <div class="div-both"> </div>
+  <mat-tab-group (selectedIndexChange)="tabChanged($event)">
+             
+    <mat-tab label="A036">
+      <div style="margin-bottom: 20px;"> </div> 
+      <app-a036 [(hint)]="show.hint"></app-a036>
+    </mat-tab>
+    
+    <mat-tab label="Exonerations">
+      <div style="margin-bottom: 20px;"> </div>
+      <app-exonerations [(hint)]="show.hint"></app-exonerations>
+    </mat-tab>
+
+    <mat-tab label="Exonerations Art35">
+      <div style="margin-bottom: 20px;"> </div>
+      <app-exonerations-art35 [(hint)]="show.hint"></app-exonerations-art35>
+    </mat-tab>
+
+    <mat-tab label="Formulaires">
+      <div style="margin-bottom: 20px;"> </div>
+      <app-formulaires [(hint)]="show.hint"></app-formulaires>
+    </mat-tab>
+
+    <mat-tab label="PIIS">
+      <div style="margin-bottom: 20px;"> </div>
+      <app-piis [(hint)]="show.hint"></app-piis>
+    </mat-tab>
+
+    <mat-tab label="Prime d'installation">
+      <div style="margin-bottom: 20px;"> </div>
+      <app-prime-installation [(hint)]="show.hint"></app-prime-installation>
+    </mat-tab>
+
+    <mat-tab label="Statut65">
+      <div style="margin-bottom: 20px;"> </div>
+      <app-statut65 [(hint)]="show.hint"></app-statut65>
+    </mat-tab>
+    
+  </mat-tab-group>
+</mat-card>
